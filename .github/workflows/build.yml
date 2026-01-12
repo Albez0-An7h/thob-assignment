@@ -20,20 +20,20 @@ jobs:
     
     - name: Install backend dependencies
       run: |
-        cd throb
+        cd thob
         npm install
     
     - name: Install frontend dependencies
       run: |
-        cd throb-cilent/thob-cilent
+        cd thob-cilent/thob-cilent
         npm install
     
     - name: Build backend
       run: |
-        cd throb
+        cd thob
         npm run build
     
     - name: Build frontend
       run: |
-        cd throb-cilent/thob-cilent
+        cd thob-cilent/thob-cilent
         npm run build
