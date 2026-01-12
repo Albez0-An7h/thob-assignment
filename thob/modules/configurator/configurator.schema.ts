@@ -27,27 +27,27 @@ export const ConfigurationSchema = z
     })
     .strict()
     .refine(
-        (data) => isColorAllowedForMaterial(data.material, data.color),
-        (data) => ({
+        (data: any) => isColorAllowedForMaterial(data.material, data.color),
+        (data: any) => ({
             message: `Color "${data.color}" is not available for material "${data.material}"`,
             path: ['color'],
         })
     )
     .refine(
-        (data) => {
+        (data: any) => {
 
             const material = getMaterial(data.material);
             const size = getSize(data.size);
             if (!material || !size) return false;
             return size.widthCm <= material.maxWidthCm;
         },
-        (data) => ({
+        (data: any) => ({
             message: `Size "${data.size}" is not compatible with material "${data.material}" (width constraint exceeded)`,
             path: ['size'],
         })
     )
     .refine(
-        (data) => areAddonsValid(data.addons),
+        (data: any) => areAddonsValid(data.addons),
         { message: 'One or more add-ons are invalid', path: ['addons'] }
     );
 
