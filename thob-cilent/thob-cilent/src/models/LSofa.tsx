@@ -23,7 +23,7 @@ export function LSofa({ configuration, ...props }: LSofaProps) {
           const material = mesh.material as THREE.MeshStandardMaterial;
           
           if (configuration?.color) {
-            const colors = {
+            const colors: { [key: string]: string } = {
               brown: '#8B4513',
               black: '#2C2C2C',
               white: '#F5F5F5',
